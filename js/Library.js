@@ -1,6 +1,6 @@
 export function Library(books=[]) {
     this.books = Array.from(books);
-}
+};
 
 Library.prototype.addBook = function(book) {
     this.books.push(book);
