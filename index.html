@@ -18,15 +18,15 @@
             <form method="dialog">
                 <div class="formRow">
                     <label for="title">Title: </label>
-                    <input type="text" name="title">
+                    <input type="text" name="title" maxlength="50" required>
                 </div>
                 <div class="formRow">
                     <label for="title">Author: </label>
-                    <input type="text" name="author">
+                    <input type="text" name="author" maxlength="50" required>
                 </div>
                 <div class="formRow">
                     <label for="title">Pages: </label>
-                    <input type="number" name="pages">
+                    <input type="number" name="pages" class="pagesInput" required>
                 </div>
                 <div class="formRow">
                     <input type="button" name="addBookBtnForm" value="Add Book" class="addBookBtnForm">
