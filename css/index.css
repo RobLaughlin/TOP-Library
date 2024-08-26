@@ -6,18 +6,23 @@
 
 .libraryContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
 }
 
 .card {
-    height: 400px;
+    height: 250px;
     border: 1px solid gray;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
     margin: 16px;
     padding: 16px;
+    word-wrap: break-word;
 }
 
 .card > * {
     margin-bottom: 16px;
+}
+
+.container {
+    width: 100%;
 }
