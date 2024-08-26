@@ -4,8 +4,20 @@
     padding: 0;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+
 .libraryContainer {
     display: grid;
+    width: 100%;
+    border: 1px solid black;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
 }
@@ -25,4 +37,17 @@
 
 .container {
     width: 100%;
+}
+
+.bookController {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBookBtn {
+    margin: 16px 0 16px 0;
+    width: 25%;
+    height: 32px;
 }

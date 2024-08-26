@@ -4,7 +4,7 @@ import { Card } from "./Card.js";
 
 const TEST_PARAMS = {
     test: true,
-    numBooks: 5,
+    numBooks: 6,
     titleCharRange: [50, 50],
     authorCharRange: [50, 50]
 };
