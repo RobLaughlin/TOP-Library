@@ -16,6 +16,11 @@ function populateLibrary(library) {
     libraryContainer.innerHTML = books.join('');
 };
 
+function addBookBtnClicked() {
+    const dialog = document.querySelector("dialog");
+    dialog.showModal();
+}
+
 function init(testParams) {
     let library = new Library();
 
@@ -27,6 +32,9 @@ function init(testParams) {
     }
 
     populateLibrary(library);
+
+    let addBookBtn = document.querySelector('.addBookBtn');
+    addBookBtn.addEventListener("click", addBookBtnClicked);
 };
 
 init(TEST_PARAMS);

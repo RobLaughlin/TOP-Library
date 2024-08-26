@@ -51,3 +51,25 @@
     width: 25%;
     height: 32px;
 }
+
+/* Add book dialog */
+.addBookDialog {
+    margin: auto;
+    padding: 32px;
+    width: 300px;
+}
+
+.addBookDialog .formRow {
+    display: flex;
+}
+
+.addBookDialog input {
+    margin-left: auto;
+    margin-bottom: 8px;
+}
+
+.addBookBtnForm {
+    margin: 8px auto 0 auto;
+    height: 24px;
+    width: 50%;
+}
