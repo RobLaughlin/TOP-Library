@@ -68,7 +68,7 @@
     margin-bottom: 8px;
 }
 
-.addBookBtnForm {
+#formAddBookBtn {
     margin: 8px auto 0 auto;
     height: 24px;
     width: 50%;

@@ -33,6 +33,17 @@ function handlePagesInputChange(e) {
     }
 }
 
+function formAddBookBtnClicked(e, library) {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = Number(document.getElementById("pages").value);
+    const book = new Book(title, author, pages);
+    library.addBook(book);
+
+    let libraryContainer = document.querySelector('.libraryContainer');
+    libraryContainer.insertAdjacentHTML("beforeend", Card(book));
+}
+
 function init(testParams) {
     let library = new Library();
 
@@ -48,8 +59,13 @@ function init(testParams) {
     let addBookBtn = document.querySelector('.addBookBtn');
     addBookBtn.addEventListener("click", addBookBtnClicked);
 
-    let pagesInput = document.querySelector('.pagesInput');
+    let pagesInput = document.querySelector('#pages');
     pagesInput.addEventListener("keypress", handlePagesInputChange);
+
+    let formAddBookBtn = document.getElementById("formAddBookBtn");
+    formAddBookBtn.addEventListener("click", (e) => {
+        formAddBookBtnClicked(e, library)
+    });
 };
 
 init(TEST_PARAMS);
