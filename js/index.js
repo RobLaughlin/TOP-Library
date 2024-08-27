@@ -14,8 +14,15 @@ const TEST_PARAMS = {
 function populateLibrary(library) {
     let libraryContainer = document.querySelector('.libraryContainer');
 
-    const books = library.books.map(Card);
+    const books = library.books.map((book, idx) => {
+        return Card(book, idx);
+    });
     libraryContainer.innerHTML = books.join('');
+
+    let removalIcons = Array.from(libraryContainer.getElementsByClassName("icon"));
+    removalIcons.forEach(icon => {
+        icon.addEventListener("click", e => {removeCardBtnClicked(e, library)});
+    });
 };
 
 function addBookBtnClicked() {
@@ -33,6 +40,12 @@ function handlePagesInputChange(e) {
     }
 }
 
+function removeCardBtnClicked(e, library) {
+    const idx = e.target.dataset.index;
+    library.removeBook(idx);
+    populateLibrary(library);
+}
+
 function formAddBookBtnClicked(e, library) {
     const addBookForm = document.getElementById("addBookForm");
     if (addBookForm.checkValidity()) { e.preventDefault(); }
@@ -44,8 +57,7 @@ function formAddBookBtnClicked(e, library) {
     const book = new Book(title, author, pages);
     library.addBook(book);
 
-    let libraryContainer = document.querySelector('.libraryContainer');
-    libraryContainer.insertAdjacentHTML("beforeend", Card(book));
+    populateLibrary(library);
 
     // Clear the form inputs
     let inputs = document.querySelectorAll(".addBookDialog input");
