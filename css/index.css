@@ -24,7 +24,6 @@
 
 /* Card */
 .card {
-    height: 250px;
     border: 1px solid gray;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
     margin: 16px;
@@ -39,12 +38,14 @@
 .card .iconContainer {
     display: flex;
     justify-content: right;
+    margin-bottom: 0;
 }
 
 .card .icon {
     width: 32px;
     cursor: pointer;
 }
+
 
 .card .icon:hover {
     opacity: 0.6;
@@ -72,11 +73,16 @@
 
 .addBookDialog .formRow {
     display: flex;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
 .addBookDialog input {
     margin-left: auto;
-    margin-bottom: 8px;
+}
+
+#read {
+    margin-left: 20px;
 }
 
 #formAddBookBtn {

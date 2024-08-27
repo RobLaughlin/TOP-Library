@@ -19,9 +19,14 @@ function populateLibrary(library) {
     });
     libraryContainer.innerHTML = books.join('');
 
-    let removalIcons = Array.from(libraryContainer.getElementsByClassName("icon"));
+    let removalIcons = Array.from(libraryContainer.getElementsByClassName("removeIcon"));
     removalIcons.forEach(icon => {
         icon.addEventListener("click", e => {removeCardBtnClicked(e, library)});
+    });
+
+    let toggleReadIcons = Array.from(libraryContainer.getElementsByClassName("toggleReadIcon"));
+    toggleReadIcons.forEach(icon => {
+        icon.addEventListener("click", e => {toggleReadStatusIconClicked(e, library)});
     });
 };
 
@@ -46,6 +51,12 @@ function removeCardBtnClicked(e, library) {
     populateLibrary(library);
 }
 
+function toggleReadStatusIconClicked(e, library) {
+    const idx = e.target.dataset.index;
+    library.books[idx].read = !library.books[idx].read;
+    populateLibrary(library);
+}
+
 function formAddBookBtnClicked(e, library) {
     const addBookForm = document.getElementById("addBookForm");
     if (addBookForm.checkValidity()) { e.preventDefault(); }
@@ -54,7 +65,8 @@ function formAddBookBtnClicked(e, library) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = Number(document.getElementById("pages").value);
-    const book = new Book(title, author, pages);
+    const read = document.getElementById("read").checked;
+    const book = new Book(title, author, pages, read);
     library.addBook(book);
 
     populateLibrary(library);

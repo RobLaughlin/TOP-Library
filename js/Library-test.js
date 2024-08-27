@@ -24,7 +24,7 @@ export function generateTestBooks(numBooks, titleCharRange, authorCharRange) {
         const title = generateRandomString(titleCharLen);
         const author = generateRandomString(authorCharLen);
         const pages = Math.floor(Math.random() * 1500);
-        books.push(new Book(title, author, pages));
+        books.push(new Book(title, author, pages, false));
     }
 
     return books;
