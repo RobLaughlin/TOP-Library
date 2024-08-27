@@ -34,6 +34,10 @@ function handlePagesInputChange(e) {
 }
 
 function formAddBookBtnClicked(e, library) {
+    const addBookForm = document.getElementById("addBookForm");
+    if (addBookForm.checkValidity()) { e.preventDefault(); }
+    else { return; }
+
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = Number(document.getElementById("pages").value);
@@ -42,6 +46,15 @@ function formAddBookBtnClicked(e, library) {
 
     let libraryContainer = document.querySelector('.libraryContainer');
     libraryContainer.insertAdjacentHTML("beforeend", Card(book));
+
+    // Clear the form inputs
+    let inputs = document.querySelectorAll(".addBookDialog input");
+    inputs.forEach(input => {
+        input.value = "";
+    });
+
+    const dialog = document.querySelector(".addBookDialog");
+    dialog.close();
 }
 
 function init(testParams) {
